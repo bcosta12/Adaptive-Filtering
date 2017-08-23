@@ -24,7 +24,7 @@ def filter(in1, a, in2):
 	output
 		numpy-array containing a subset of the discrete linear convolution of in1 with in2, The output is the same size as in1, starting from the beginning 
 	'''
-	if a == 0: raise Exception(" 'A value of '0' for 'a' is not allowed.") #cannot divive by zero
+	if a == 0: raise Exception(" A value of '0' for 'a' is not allowed.") #cannot divive by zero
 	filtered = np.asarray(conv(in1, in2)) #numpy array its better to math applications 
 	filtered = filtered[0:len(in2)] #reshape
 	if a == 1: #faster
