@@ -19,6 +19,7 @@ def filter(in1, a, in2):
 	'''
 	input 
 		in1: array_like, fist input
+		a: constant that divide the filtered, note if a==1, the filter will be FIR
 		in2: array_like, second input
 	output
 		numpy-array containing a subset of the discrete linear convolution of in1 with in2, The output is the same size as in1, starting from the beginning 
