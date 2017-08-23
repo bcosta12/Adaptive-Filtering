@@ -9,20 +9,26 @@ def conv(in1, in2):
 		in1: array_like, fist input
 		in2: array_like, second input
 	output
-		array containing a subset of the discrete linear convolution of in1 with in2.
+		numpy-array containing a subset of the discrete linear convolution of in1 with in2.
 	'''
 	mode='full'# The output is the full discrete linear convolution of the inputs. (Default) 
 	convolved = np.asarray(sp.convolve(in1, in2, mode)) #numpy array it is better to math applications
 	return convolved
 
-def filter(in1, in2):
+def filter(in1, a, in2):
 	'''
 	input 
 		in1: array_like, fist input
 		in2: array_like, second input
 	output
-		array containing a subset of the discrete linear convolution of in1 with in2, The output is the same size as in1, starting from the beginning 
+		numpy-array containing a subset of the discrete linear convolution of in1 with in2, The output is the same size as in1, starting from the beginning 
 	'''
+	if a == 0:
+		print(" 'A value of '0' for 'a' is not allowed.")
+		return -1 #should implement a exception
 	filtered = np.asarray(conv(in1, in2)) #numpy array its better to math applications 
-	filtered = filtered[0:len(in1)] #reshape
-	return filtered
+	filtered = filtered[0:len(in2)] #reshape
+	if a == 1: #faster
+		return filtered
+	else:
+		return filtered/float(a)
