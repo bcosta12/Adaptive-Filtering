@@ -1,17 +1,13 @@
 import numpy as np 
 
 def lms(wk, beta, xk, ek):
-	  '''
+	'''
     input 
-        wk: 
+        wk: filter of k 
         beta: beta of lms classic algorithm 
-        xk:
+        xk: input signal of k 
         ek: error of k
     output
         numpy-array containing lms interaction
     '''
-
-	wk = np.asarray(wk)
-	xk = np.asarray(xk)
-	ek = np.asarray(ek)
-	return wk + beta * xk * ek
+	return wk + beta * np.dot(xk,ek)
